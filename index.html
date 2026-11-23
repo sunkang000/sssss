@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Kit Shop | 축구 팬을 위한 축구용품 쇼핑몰</title>
+  <meta name="description" content="유니폼, 축구화, 축구공, 골키퍼 장갑까지. 축구 팬을 위한 축구용품 쇼핑몰 Football Kit Shop">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 상단 안내 -->
+  <div class="topbar">신규 회원가입 시 <strong>3,000P</strong> 지급 · 5만원 이상 무료배송</div>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" id="logoLink">
+        <img src="img/favicon.png" alt="" width="34" height="34">
+        <span>Football Kit Shop</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="주 메뉴">
+        <a href="#products" data-category="all">전체 상품</a>
+        <a href="#products" data-category="uniform">유니폼</a>
+        <a href="#products" data-category="boots">축구화</a>
+        <a href="#products" data-category="ball">축구공</a>
+        <a href="#products" data-category="gear">축구 용품</a>
+        <a href="#membership">멤버십</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="userBtn" type="button" aria-label="로그인 또는 마이페이지">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span class="btn-label" id="userLabel">로그인</span>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" type="button" aria-label="장바구니">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="btn-label">장바구니</span> <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 메인 슬라이드: 사진 4장, 6초마다 교차 -->
+    <section class="hero" id="hero" aria-label="메인 슬라이드">
+      <div class="slide active">
+        <img src="img/hero-1.jpg" alt="야간 경기장 잔디 위에 놓인 축구공">
+        <div class="container slide-text">
+          <p class="eyebrow">MATCH BALL</p>
+          <h1>경기장의 감각 그대로,<br>공인 규격 축구공</h1>
+          <p>시합용 5호 축구공과 풋살공을 준비했습니다.</p>
+          <a href="#products" class="btn btn-accent" data-category="ball">축구공 보기</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/hero-2.jpg" alt="저녁 햇살이 비치는 잔디 위의 축구화">
+        <div class="container slide-text">
+          <p class="eyebrow">FOOTBALL BOOTS</p>
+          <h2>천연잔디부터 인조잔디까지,<br>새 축구화</h2>
+          <p>가벼운 스피드형과 안정적인 컨트롤형 축구화를 만나 보세요.</p>
+          <a href="#products" class="btn btn-accent" data-category="boots">축구화 보기</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/hero-3.jpg" alt="조명 아래 나란히 놓인 홈 유니폼과 어웨이 유니폼">
+        <div class="container slide-text">
+          <p class="eyebrow">26/27 NEW KIT</p>
+          <h2>새 시즌 유니폼이<br>도착했습니다</h2>
+          <p>홈·어웨이 유니폼을 사이즈별로 준비했습니다.</p>
+          <a href="#products" class="btn btn-accent" data-category="uniform">유니폼 보기</a>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="img/hero-4.jpg" alt="조명이 켜진 야간 축구 경기장">
+        <div class="container slide-text">
+          <p class="eyebrow">MEMBERSHIP</p>
+          <h2>살수록 커지는 적립,<br>최대 7%</h2>
+          <p>가입 즉시 3,000P, 등급에 따라 1~7% 적립됩니다.</p>
+          <a href="#membership" class="btn btn-accent">등급 혜택 보기</a>
+        </div>
+      </div>
+
+      <div class="hero-controls container">
+        <button class="hero-arrow" id="prevSlide" type="button" aria-label="이전 슬라이드">‹</button>
+        <div class="hero-dots" id="heroDots"></div>
+        <button class="hero-arrow" id="nextSlide" type="button" aria-label="다음 슬라이드">›</button>
+      </div>
+    </section>
+
+    <!-- 상품 목록 -->
+    <section class="section container" id="products">
+      <div class="section-head">
+        <h2 class="section-title" id="listTitle">전체 상품</h2>
+        <form class="search" id="searchForm" role="search">
+          <label for="searchInput" class="sr-only">상품 검색</label>
+          <input type="search" id="searchInput" placeholder="상품명, 팀 이름, 종류 검색">
+          <button type="submit" class="btn btn-primary btn-sm">검색</button>
+        </form>
+      </div>
+
+      <div class="filters" id="filters" role="group" aria-label="분류 필터"></div>
+      <p class="result-info" id="resultInfo"></p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- 멤버십 -->
+    <section class="section membership" id="membership">
+      <div class="container">
+        <h2 class="section-title">회원 등급과 포인트</h2>
+        <p class="section-desc">등급은 누적 구매 금액으로 정해지며, 결제 금액의 1~7%가 포인트로 적립됩니다. 포인트는 1,000P부터 사용할 수 있습니다.</p>
+        <div class="grade-grid" id="gradeGrid"></div>
+        <div class="join-box">
+          <p><strong>지금 가입하면 3,000P를 드립니다.</strong> 첫 주문부터 포인트로 할인받으세요.</p>
+          <button class="btn btn-accent" id="joinBtn" type="button">회원가입</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-logo">Football Kit Shop</p>
+      <p>축구 팬을 위한 축구용품 쇼핑몰 · 유니폼 · 축구화 · 축구공 · 축구 용품</p>
+      <p class="footer-note">수업용 체험 쇼핑몰입니다. 실제 결제는 이루어지지 않으며, 팀 이름·상품·이미지는 예시입니다.</p>
+    </div>
+  </footer>
+
+  <!-- 상품 상세 -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="detailTitle">상품 상세</h2>
+        <button class="close-btn" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="detailBody"></div>
+    </div>
+  </div>
+
+  <!-- 로그인 / 회원가입 -->
+  <div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box small">
+      <div class="modal-head">
+        <h2 id="authTitle">로그인</h2>
+        <button class="close-btn" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" data-tab="login">로그인</button>
+        <button type="button" class="auth-tab" data-tab="signup">회원가입</button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" novalidate>
+          <label for="loginEmail">이메일</label>
+          <input type="email" id="loginEmail" autocomplete="email">
+          <label for="loginPw">비밀번호</label>
+          <input type="password" id="loginPw" autocomplete="current-password">
+          <p class="error" id="loginError"></p>
+          <button type="submit" class="btn btn-primary btn-block">로그인</button>
+        </form>
+
+        <form id="signupForm" novalidate hidden>
+          <p class="notice">가입 즉시 <strong>3,000P</strong>를 드립니다.</p>
+          <label for="signupName">이름</label>
+          <input type="text" id="signupName" autocomplete="name">
+          <label for="signupEmail">이메일 (아이디)</label>
+          <input type="email" id="signupEmail" autocomplete="email">
+          <label for="signupPw">비밀번호 (8자 이상)</label>
+          <input type="password" id="signupPw" autocomplete="new-password">
+          <label for="signupPw2">비밀번호 확인</label>
+          <input type="password" id="signupPw2" autocomplete="new-password">
+          <label for="signupPhone">휴대폰 번호</label>
+          <input type="tel" id="signupPhone" placeholder="010-0000-0000" autocomplete="tel">
+          <label for="signupAddr">배송지 주소</label>
+          <input type="text" id="signupAddr" autocomplete="street-address">
+          <label class="check"><input type="checkbox" id="signupAgree"> (필수) 이용약관 및 개인정보 수집에 동의합니다.</label>
+          <p class="error" id="signupError"></p>
+          <button type="submit" class="btn btn-primary btn-block">가입하고 3,000P 받기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 장바구니 -->
+  <div class="modal drawer" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box drawer-box">
+      <div class="modal-head">
+        <h2 id="cartTitle">장바구니</h2>
+        <button class="close-btn" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="cartBody"></div>
+    </div>
+  </div>
+
+  <!-- 체험 결제 -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="checkoutTitle">주문 / 체험 결제</h2>
+        <button class="close-btn" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="checkoutBody"></div>
+    </div>
+  </div>
+
+  <!-- 마이페이지 -->
+  <div class="modal" id="myModal" role="dialog" aria-modal="true" aria-labelledby="myTitle">
+    <div class="modal-bg" data-close></div>
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="myTitle">마이페이지</h2>
+        <button class="close-btn" type="button" data-close aria-label="닫기">×</button>
+      </div>
+      <div class="modal-body" id="myBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
